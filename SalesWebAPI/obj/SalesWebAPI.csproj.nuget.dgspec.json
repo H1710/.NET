@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\.NET\\SalesWebAPI\\SalesWebAPI.csproj": {}
+    "D:\\SistemaWeb-ASP-NET-Core-MVC-EntityFramework\\SalesWebMvc\\SalesWebAPI\\SalesWebAPI.csproj": {}
   },
   "projects": {
-    "D:\\.NET\\SalesWebAPI\\SalesWebAPI.csproj": {
+    "D:\\SistemaWeb-ASP-NET-Core-MVC-EntityFramework\\SalesWebMvc\\SalesWebAPI\\SalesWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\.NET\\SalesWebAPI\\SalesWebAPI.csproj",
+        "projectUniqueName": "D:\\SistemaWeb-ASP-NET-Core-MVC-EntityFramework\\SalesWebMvc\\SalesWebAPI\\SalesWebAPI.csproj",
         "projectName": "SalesWebAPI",
-        "projectPath": "D:\\.NET\\SalesWebAPI\\SalesWebAPI.csproj",
+        "projectPath": "D:\\SistemaWeb-ASP-NET-Core-MVC-EntityFramework\\SalesWebMvc\\SalesWebAPI\\SalesWebAPI.csproj",
         "packagesPath": "C:\\Users\\huyqu\\.nuget\\packages\\",
-        "outputPath": "D:\\.NET\\SalesWebAPI\\obj\\",
+        "outputPath": "D:\\SistemaWeb-ASP-NET-Core-MVC-EntityFramework\\SalesWebMvc\\SalesWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\huyqu\\AppData\\Roaming\\NuGet\\NuGet.Config",

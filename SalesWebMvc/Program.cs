@@ -6,82 +6,63 @@ using SalesWebMvc.Services;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddJsonFile(
+        $"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json",
+        optional: false,
+        reloadOnChange: true
+     ).AddEnvironmentVariables();
+
+// Configure the database context and migration assembly
 builder.Services.AddDbContext<SalesWebMvcContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("SalesWebMvcContext"),
     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("SalesWebMvcContext")),
-    builder => builder.MigrationsAssembly("SalesWebMvc")));
+    migrationOptions => migrationOptions.MigrationsAssembly("SalesWebMvc")));
 
+// Add services to the DI container
 builder.Services.AddScoped<SeedingService>();
 builder.Services.AddScoped<SellerService>();
 builder.Services.AddScoped<DepartamentService>();
 builder.Services.AddScoped<SalesRecordService>();
 builder.Services.AddScoped<NotesService>();
 
-// Add services to the container.
+// Add controller and view services
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+// Configure request localization
 var enUS = new CultureInfo("en-US");
-var localizationOption = new RequestLocalizationOptions()
+var localizationOptions = new RequestLocalizationOptions
 {
     DefaultRequestCulture = new RequestCulture(enUS),
     SupportedCultures = new List<CultureInfo> { enUS },
     SupportedUICultures = new List<CultureInfo> { enUS },
 };
 
-app.UseRequestLocalization(localizationOption);
+app.UseRequestLocalization(localizationOptions);
 
-// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-app.UseHsts();
-
-
+// Middleware configuration
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
 
-// Injetando o SeedingService no pipeline de solicita��o
-// Aqui n�s estamos dizendo para o aplicativo executar um peda�o de c�digo somente se uma certa condi��o for verdadeira.
-app.MapWhen(context =>
-{
-    // Aqui, estamos verificando em qual ambiente o aplicativo est� rodando, se � "desenvolvimento" ou n�o.
-    var env = context.RequestServices.GetRequiredService<IWebHostEnvironment>();
+var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+var context = services.GetRequiredService<SalesWebMvcContext>();
 
-    // Se o aplicativo estiver em ambiente de "desenvolvimento"...
-    if (env.IsDevelopment())
-    {
-        // Aqui, estamos dizendo para o aplicativo pegar um servi�o que semeia dados e chamar um m�todo nele chamado "Seed".
-        var seedingService = context.RequestServices.GetRequiredService<SeedingService>();
-        seedingService.Seed();
-    }
+// Apply any pending migrations
+context.Database.Migrate();
 
-    // Aqui estamos dizendo que, independentemente de estar em ambiente de desenvolvimento ou n�o,
-    // n�o vamos interromper o fluxo normal do aplicativo, ent�o estamos retornando "false".
-    return false;
-}, app => { });
+// Seed the database
+var seedingService = services.GetRequiredService<SeedingService>();
+seedingService.Seed();
 
+// Map the default route for MVC
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-if (app.Environment.IsDevelopment())
-{
-    using (var scope = app.Services.CreateScope())
-    {
-        var services = scope.ServiceProvider;
-
-        try
-        {
-            // Call the SeedingService to seed the data
-            var seedingService = services.GetRequiredService<SeedingService>();
-            seedingService.Seed();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"An error occurred while seeding the database: {ex.Message}");
-        }
-    }
-}
+// Run the application
 app.Run();

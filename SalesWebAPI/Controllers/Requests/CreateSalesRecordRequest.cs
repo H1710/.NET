@@ -1,9 +1,9 @@
-﻿using SalesWebAPI.Models.Enums;
+using SalesWebAPI.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace SalesWebAPI.Models
+namespace SalesWebAPI.Controllers.Requests
 {
-    public class SalesRecord
+    public class CreateSalesRecordRequest
     {
         public int Id { get; set; }
 
@@ -12,18 +12,18 @@ namespace SalesWebAPI.Models
 
         public double Amount { get; set; }
         public SaleStatus Status { get; set; }
-        public Seller? Seller { get; set; }
+        public int SellerId { get; set; }
 
-        public SalesRecord()
+        public CreateSalesRecordRequest()
         {
         }
-        public SalesRecord(int id, DateTime date, double amount, SaleStatus status, Seller seller)
+        public CreateSalesRecordRequest(int id, DateTime date, double amount, SaleStatus status, int sellerId)
         {
             Id = id;
             Date = date;
             Amount = amount;
             Status = status;
-            Seller = seller;
+            SellerId = sellerId;
         }
     }
 }

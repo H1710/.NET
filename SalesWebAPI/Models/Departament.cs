@@ -23,7 +23,6 @@
         public double TotalSales(DateTime initial, DateTime final)
         {
             return Sellers.Sum(seller => seller.TotalSales(initial, final));
-            // pegando cada vendedor da minha lista seller, chamo o total de vendedores e faço a soma para todos vendedores(.Sum)
         }
     }
 }

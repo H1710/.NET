@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WhT16DKk+sth64iSxLDFLVOdjmEYU5ukQInHVgNKsFpvs+n04XLoVIlSu7tvEb9kbBCNgcPLStxTqlMpnLRxYQ==",
+  "dgSpecHash": "Ml/wmEvFo5foT6yVRn+6QgUjcCvxdKVhRKCYJW6E1bqJcT8XJbd7o+SToATNm6fo+EsOJrWIKIu055D1sO3gdw==",
   "success": true,
-  "projectFilePath": "D:\\.NET\\SalesWebAPI\\SalesWebAPI.csproj",
+  "projectFilePath": "D:\\SistemaWeb-ASP-NET-Core-MVC-EntityFramework\\SalesWebMvc\\SalesWebAPI\\SalesWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\huyqu\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\huyqu\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

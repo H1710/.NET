@@ -1,4 +1,5 @@
-﻿using SalesWebAPI.Models;
+﻿using SalesWebAPI.Controllers.Requests;
+using SalesWebAPI.Models;
 
 namespace SalesWebAPI.Services
 {
@@ -6,7 +7,7 @@ namespace SalesWebAPI.Services
     {
         Task<IEnumerable<SalesRecord>> GetAllSalesRecordsAsync();
         Task<SalesRecord> GetSalesRecordByIdAsync(int id);
-        Task AddSalesRecordAsync(SalesRecord salesRecord);
+        Task AddSalesRecordAsync(CreateSalesRecordRequest salesRecord);
         Task UpdateSalesRecordAsync(SalesRecord salesRecord);
         Task DeleteSalesRecordAsync(int id);
     }

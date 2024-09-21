@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SalesWebAPI.Controllers.Requests;
 using SalesWebAPI.Models;
 using SalesWebAPI.Services;
 
@@ -32,7 +33,7 @@ public class SalesRecordController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create([FromBody] SalesRecord salesRecord)
+    public async Task<ActionResult> Create([FromBody] CreateSalesRecordRequest salesRecord)
     {
         if (!ModelState.IsValid)
         {

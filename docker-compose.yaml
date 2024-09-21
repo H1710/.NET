@@ -19,11 +19,13 @@ services:
     container_name: saleswebmvc-container
     ports:
       - "8089:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
     depends_on:
       - mysql
     networks:
       - saleswebnetwork
-    command: ["dotnet", "SalesWebMvc.dll"]
+    restart: always
 
   saleswebapi:
     build:
@@ -38,19 +40,6 @@ services:
       - mysql
     networks:
       - saleswebnetwork
-    command: ["dotnet", "SalesWebAPI.dll"]
-
-  ef-migrations:
-    build:
-      context: .
-      dockerfile: Dockerfile.migrations
-    container_name: ef-migrations-container
-    depends_on:
-      - mysql
-    networks:
-      - saleswebnetwork
-    command:
-      ["dotnet", "ef", "database", "update", "--project", "SalesWebMvc.csproj"]
 
 networks:
   saleswebnetwork:

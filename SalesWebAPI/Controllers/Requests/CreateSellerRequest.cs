@@ -1,9 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
 
-namespace SalesWebAPI.Models
+namespace SalesWebAPI.Controllers.Requests
 {
-    public class Seller
+    public class CreateSellerRequest
     {
         public int Id { get; set; }
 
@@ -27,36 +26,19 @@ namespace SalesWebAPI.Models
         [Display(Name = "Base Salary")]
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double BaseSalary { get; set; }
-        public Departament? Departament { get; set; }
-
-        [JsonIgnore]
-        public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
-        public Seller()
+        public int DepartamentId { get; set; }
+        public CreateSellerRequest()
         {
         }
-        public Seller(int id, string name, string email, DateTime birthDate, double baseSalary, Departament departament)
+        public CreateSellerRequest(int id, string name, string email, DateTime birthDate, double baseSalary, int departamentId)
         {
             Id = id;
             Name = name;
             Email = email;
             BirthDate = birthDate;
             BaseSalary = baseSalary;
-            Departament = departament;
+            DepartamentId = departamentId;
         }
 
-        public void AddSales(SalesRecord sr)
-        {
-            Sales.Add(sr);
-        }
-
-        public void RemoveSales(SalesRecord sr)
-        {
-            Sales.Remove(sr);
-        }
-
-        public double TotalSales(DateTime initial, DateTime final)
-        {
-            return Sales.Where(sr => sr.Date >= initial && sr.Date <= final).Sum(sr => sr.Amount);
-        }
     }
 }

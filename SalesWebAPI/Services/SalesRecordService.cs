@@ -1,14 +1,17 @@
-﻿using SalesWebAPI.Models;
+﻿using SalesWebAPI.Controllers.Requests;
+using SalesWebAPI.Models;
 using SalesWebAPI.Repositories;
 using SalesWebAPI.Services;
 
 public class SalesRecordService : ISalesRecordService
 {
     private readonly ISalesRecordRepository _repository;
+    private readonly ISellerRepository _sellerRepository;
 
-    public SalesRecordService(ISalesRecordRepository repository)
+    public SalesRecordService(ISalesRecordRepository repository, ISellerRepository sellerRepository)
     {
         _repository = repository;
+        _sellerRepository = sellerRepository;
     }
 
     public async Task<IEnumerable<SalesRecord>> GetAllSalesRecordsAsync()
@@ -21,10 +24,26 @@ public class SalesRecordService : ISalesRecordService
         return await _repository.GetByIdAsync(id);
     }
 
-    public async Task AddSalesRecordAsync(SalesRecord salesRecord)
+    public async Task AddSalesRecordAsync(CreateSalesRecordRequest salesRecordRequest)
     {
+        var seller = await _sellerRepository.GetByIdAsync(salesRecordRequest.SellerId);
+
+        if (seller == null)
+        {
+            throw new Exception("Seller not found");
+        }
+
+        var salesRecord = new SalesRecord
+        {
+            Date = salesRecordRequest.Date,
+            Amount = salesRecordRequest.Amount,
+            Status = salesRecordRequest.Status,
+            Seller = seller
+        };
+
         await _repository.AddAsync(salesRecord);
     }
+
 
     public async Task UpdateSalesRecordAsync(SalesRecord salesRecord)
     {

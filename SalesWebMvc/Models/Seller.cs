@@ -30,7 +30,6 @@ namespace SalesWebMvc.Models
         public Departament? Departament { get; set; }
         public int? DepartamentId { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
-        //Sales é a lista de vendas associadas ao vendedor (Seller)
         public Seller()
         {
         }
@@ -46,18 +45,17 @@ namespace SalesWebMvc.Models
 
         public void AddSales(SalesRecord sr)
         {
-            Sales.Add(sr); //add na lista
+            Sales.Add(sr);
         }
 
         public void RemoveSales(SalesRecord sr)
         {
-            Sales.Remove(sr); //removendo da lista
+            Sales.Remove(sr);
         }
 
         public double TotalSales(DateTime initial, DateTime final)
         {
             return Sales.Where(sr => sr.Date >= initial && sr.Date <= final).Sum(sr => sr.Amount);
-            //Todo objeto sr tal que sr.date seja maior ou igual a minha data inicial, e sr.date seja menor ou igual a minha data final. Agora quero a soma das vendas baseado em no atributo sr.amount
 
         }
     }

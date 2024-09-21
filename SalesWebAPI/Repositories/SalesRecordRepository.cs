@@ -14,12 +14,12 @@ public class SalesRecordRepository : ISalesRecordRepository
 
     public async Task<IEnumerable<SalesRecord>> GetAllAsync()
     {
-        return await _context.SalesRecord.Include(sr => sr.Seller).ToListAsync();
+        return await _context.SalesRecord.ToListAsync();
     }
 
     public async Task<SalesRecord> GetByIdAsync(int id)
     {
-        return await _context.SalesRecord.Include(sr => sr.Seller).FirstOrDefaultAsync(sr => sr.Id == id);
+        return await _context.SalesRecord.FirstOrDefaultAsync(sr => sr.Id == id);
     }
 
     public async Task AddAsync(SalesRecord salesRecord)

@@ -1,4 +1,5 @@
-﻿using SalesWebAPI.Models;
+﻿using SalesWebAPI.Controllers.Requests;
+using SalesWebAPI.Models;
 using SalesWebAPI.Repositories;
 
 namespace SalesWebAPI.Services
@@ -6,10 +7,12 @@ namespace SalesWebAPI.Services
     public class SellerService : ISellerService
     {
         private readonly ISellerRepository _repository;
+        private readonly IDepartamentRepository _departmentRepository;
 
-        public SellerService(ISellerRepository repository)
+        public SellerService(ISellerRepository repository, IDepartamentRepository departmentRepository)
         {
             _repository = repository;
+            _departmentRepository = departmentRepository;
         }
 
         public async Task<IEnumerable<Seller>> GetAllSellersAsync()
@@ -22,10 +25,25 @@ namespace SalesWebAPI.Services
             return await _repository.GetByIdAsync(id);
         }
 
-        public async Task AddSellerAsync(Seller seller)
+        public async Task AddSellerAsync(CreateSellerRequest sellerRequest)
         {
+            var departament = await _departmentRepository.GetByIdAsync(sellerRequest.DepartamentId);
+            if (departament == null)
+            {
+                throw new Exception("Departament not found.");
+            }
+            var seller = new Seller
+            {
+                Name = sellerRequest.Name,
+                Email = sellerRequest.Email,
+                BirthDate = sellerRequest.BirthDate,
+                BaseSalary = sellerRequest.BaseSalary,
+                Departament = departament
+            };
+
             await _repository.AddAsync(seller);
         }
+
 
         public async Task UpdateSellerAsync(Seller seller)
         {

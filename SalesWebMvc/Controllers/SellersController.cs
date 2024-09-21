@@ -105,7 +105,7 @@ namespace SalesWebMvc.Controllers
 
             List<Departament> departaments = await _departamentService.FindAllAsync();
             SellerFormViewModel viewModel = new SellerFormViewModel { Seller = obj, Departaments = departaments };
-            return View(viewModel); 
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -130,7 +130,7 @@ namespace SalesWebMvc.Controllers
             catch (ApplicationException e)
             {
                 return RedirectToAction(nameof(Error), new { Message = e.Message });
-            } 
+            }
         }
 
         public IActionResult Error(string message)

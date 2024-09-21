@@ -1,0 +1,18 @@
+# Use the .NET SDK image for migrations
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS migrations
+
+WORKDIR /src
+
+COPY ["SalesWebMvc/SalesWebMvc.csproj", "SalesWebMvc/"]
+RUN dotnet restore "SalesWebMvc/SalesWebMvc.csproj"
+
+COPY SalesWebMvc/ SalesWebMvc/
+WORKDIR "/src/SalesWebMvc"
+
+# Install dotnet-ef tool
+RUN dotnet tool install --global dotnet-ef
+
+# Add the .dotnet/tools directory to the PATH
+ENV PATH="$PATH:/root/.dotnet/tools"
+
+ENTRYPOINT ["dotnet"]

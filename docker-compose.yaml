@@ -1,0 +1,57 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: huy12345
+      MYSQL_DATABASE: saleswebmvcappdb
+    ports:
+      - "3309:3306"
+    networks:
+      - saleswebnetwork
+
+  saleswebmvc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: saleswebmvc-container
+    ports:
+      - "8089:8080"
+    depends_on:
+      - mysql
+    networks:
+      - saleswebnetwork
+    command: ["dotnet", "SalesWebMvc.dll"]
+
+  saleswebapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.webapi
+    container_name: saleswebapi-container
+    ports:
+      - "8090:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    depends_on:
+      - mysql
+    networks:
+      - saleswebnetwork
+    command: ["dotnet", "SalesWebAPI.dll"]
+
+  ef-migrations:
+    build:
+      context: .
+      dockerfile: Dockerfile.migrations
+    container_name: ef-migrations-container
+    depends_on:
+      - mysql
+    networks:
+      - saleswebnetwork
+    command:
+      ["dotnet", "ef", "database", "update", "--project", "SalesWebMvc.csproj"]
+
+networks:
+  saleswebnetwork:
+    driver: bridge

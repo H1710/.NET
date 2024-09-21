@@ -1,0 +1,123 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SalesWebMvc
+build_property.RootNamespace = SalesWebMvc
+build_property.ProjectDir = D:\SistemaWeb-ASP-NET-Core-MVC-EntityFramework\SalesWebMvc\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\SistemaWeb-ASP-NET-Core-MVC-EntityFramework\SalesWebMvc
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Departaments/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcRGVwYXJ0YW1lbnRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Departaments/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcRGVwYXJ0YW1lbnRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Departaments/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcRGVwYXJ0YW1lbnRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Departaments/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcRGVwYXJ0YW1lbnRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Departaments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcRGVwYXJ0YW1lbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Notes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcTm90ZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Notes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcTm90ZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Notes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcTm90ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/SalesRecords/GroupingSearch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcU2FsZXNSZWNvcmRzXEdyb3VwaW5nU2VhcmNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/SalesRecords/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcU2FsZXNSZWNvcmRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/SalesRecords/SimpleSearch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcU2FsZXNSZWNvcmRzXFNpbXBsZVNlYXJjaC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Sellers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcU2VsbGVyc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Sellers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcU2VsbGVyc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Sellers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcU2VsbGVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Sellers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcU2VsbGVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Sellers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcU2VsbGVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SistemaWeb-ASP-NET-Core-MVC-EntityFramework/SalesWebMvc/SalesWebMvc/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = U2FsZXNXZWJNdmNcVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-5pn2cxk9qz

@@ -1,8 +1,11 @@
-﻿namespace SalesWebAPI.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SalesWebAPI.Models
 {
     public class Departament
     {
         public int Id { get; set; }
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "{0} size should be between {2} and {1}")]
         public string Name { get; set; }
         public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
 

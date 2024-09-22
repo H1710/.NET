@@ -7,6 +7,7 @@ using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Configuration.AddJsonFile(
         $"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json",
         optional: false,
@@ -14,9 +15,13 @@ builder.Configuration.AddJsonFile(
      ).AddEnvironmentVariables();
 
 // Configure the database context and migration assembly
+// builder.Services.AddDbContext<SalesWebMvcContext>(options =>
+//     options.UseMySql(builder.Configuration.GetConnectionString("SalesWebMvcContext"),
+//     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("SalesWebMvcContext")),
+//     migrationOptions => migrationOptions.MigrationsAssembly("SalesWebMvc")));
+
 builder.Services.AddDbContext<SalesWebMvcContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("SalesWebMvcContext"),
-    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("SalesWebMvcContext")),
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SalesWebMvcContext"),
     migrationOptions => migrationOptions.MigrationsAssembly("SalesWebMvc")));
 
 // Add services to the DI container

@@ -1,17 +1,21 @@
 version: "3.8"
 
 services:
-  mysql:
-    image: mysql:5.7
-    container_name: mysql-container
+  # SQL Server service
+  mssql2:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql2-db
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: huy12345
-      MYSQL_DATABASE: saleswebmvcappdb
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "@Huy12345"
     ports:
-      - "3309:3306"
-    networks:
-      - saleswebnetwork
+      - "1434:1433"
+    volumes:
+      - ./.containers/mssql2:/var/opt/mssql/data
+      - ./bk:/var/opt/mssql2/backup
 
+  # SalesWebMvc service
   saleswebmvc:
     build:
       context: .
@@ -21,10 +25,9 @@ services:
       - "8089:8080"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__SalesWebMvcContext: "Server=mssql2;Database=saleswebmvcappdb;User Id=sa;Password=@Huy12345;TrustServerCertificate=True;"
     depends_on:
-      - mysql
-    networks:
-      - saleswebnetwork
+      - mssql2
     restart: always
 
   saleswebapi:
@@ -36,10 +39,10 @@ services:
       - "8090:8080"
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__SalesWebMvcContext: "Server=mssql2;Database=saleswebmvcappdb;User Id=sa;Password=@Huy12345;TrustServerCertificate=True;"
     depends_on:
-      - mysql
-    networks:
-      - saleswebnetwork
+      - mssql2
+    restart: always
 
 networks:
   saleswebnetwork:

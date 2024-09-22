@@ -27,6 +27,9 @@ namespace SalesWebAPI.Models
         [Display(Name = "Base Salary")]
         [DisplayFormat(DataFormatString = "{0:F2}")]
         public double BaseSalary { get; set; }
+
+        public int? DepartamentId { get; set; }
+
         public Departament? Departament { get; set; }
 
         [JsonIgnore]

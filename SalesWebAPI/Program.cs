@@ -18,10 +18,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// builder.Services.AddDbContext<SalesWebMvcContext>(options =>
+//     options.UseMySql(builder.Configuration.GetConnectionString("SalesWebMvcContext"),
+//     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("SalesWebMvcContext")),
+//     builder => builder.MigrationsAssembly("SalesWebAPI")));
+
 builder.Services.AddDbContext<SalesWebMvcContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("SalesWebMvcContext"),
-    ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("SalesWebMvcContext")),
-    builder => builder.MigrationsAssembly("SalesWebAPI")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SalesWebMvcContext"),
+    migrationOptions => migrationOptions.MigrationsAssembly("SalesWebAPI")));
 
 builder.Services.AddScoped<SeedingService>();
 builder.Services.AddScoped<SellerService>();
